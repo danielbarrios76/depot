@@ -12,6 +12,11 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal [I18n.translate('errors.messages.taken')], product.errors[:title]
   end
 
+  test "product title must be at least ten characters long" do
+      product = products(:ruby)
+      assert product.valid?, "product title shouldn't be invalid"
+  end
+
   test "product attributes must not be empty" do
     product = Product.new
     assert product.invalid?
