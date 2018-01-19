@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
-<!-- <h2>Your Pragmatic Cart</h2>
+<%= render(@cart) %>
+
+
+
+
+<!-- Original
+
+<h2>Your Pragmatic Cart</h2>
 <ul>
   <% @cart.line_items.each do |item| %> -->
     <!-- <li><%= item.product.title %></li> -->
@@ -8,6 +15,9 @@
 </ul>
 -->
 
+
+
+<!-- for task F
 <h2>Your Cart</h2>
 <table>
   <% @cart.line_items.each do |item| %>
@@ -15,6 +25,8 @@
       <td><%= item.quantity %>&times;</td>
       <td><%= item.product.title %></td>
       <td class="item_price"><%= number_to_currency(item.total_price) %></td>
+      <td><%= button_to 'Delete Item', item, :method => :delete, :confirm => 'Are You Sure' %></td>
+
     </tr>
   <% end %>
 
@@ -24,3 +36,4 @@
   </tr>
 </table>
 <%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+-->
