@@ -11,6 +11,9 @@
     <div id="banner">
       <%= image_tag 'logo.svg', alt: 'The Pragmatic Bookshelf' %>
       <span class="title"><%= @page_title %></span>
+
+      <%= @show_counter %>
+
     </div>
 
     <div id="columns">
@@ -22,6 +25,7 @@
           <li><a href="http://www..../contact">Contact</a></li>
         </ul>
         <p><%= l date_loaded, :format => :short %></p>
+
       </div>
 
       <div id="main">
