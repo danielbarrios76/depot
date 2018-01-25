@@ -6,11 +6,7 @@ class StoreController < ApplicationController
 
     #show load counter messages
     counter = get_loader_counter
-    @show_counter = nil
-    if counter > 5
-      @show_counter = "Session: #{counter} " + 'time'.pluralize
-    end
-
+    @show_counter = "Session: #{counter} " + 'time'.pluralize
   end
 
   protected
