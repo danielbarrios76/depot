@@ -1,9 +1,26 @@
 Rails.application.routes.draw do
-  resources :orders
-  resources :line_items
-  resources :carts
-  root 'store#index', as: 'store_index'
+  #get 'admin/index'
+  get 'admin' => 'admin#index'
+  
+    controller :sessions do
+      get 'login' => :new
+      post 'login' => :create
+      delete 'logout' => :destroy
+    end
 
+  #get 'sessions/new'
+  #get 'sessions/create'
+  #get 'sessions/destroy'
+
+  scope '(:locale)' do
+    resources :users
+    resources :pay_types
+    resources :orders
+    resources :line_items
+    resources :carts
+    root 'store#index', as: 'store_index'
+  end
+  
   # resources :products
   resources :products do
     get :who_bought, on: :member

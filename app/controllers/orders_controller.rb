@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   include CurrentCart
-
+  
+  skip_before_action :authorize, only: [:new, :create]
   before_action :set_cart, only: [:new, :create]
   before_action :ensure_cart_isnt_empty, only: :new
   before_action :set_order, only: [:show, :edit, :update, :destroy]
@@ -36,7 +37,9 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        format.html { redirect_to store_index_url, notice: 'Thank you for your order.' }
+        OrderMailer.received(@order).deliver_later
+        format.html { redirect_to store_index_url(locale: I18n.locale), notice: I18n.t('.thanks') }
+        #format.html { redirect_to store_index_url, notice: 'Thank you for your order.' }
         #format.html { redirect_to @order, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
@@ -86,6 +89,6 @@ class OrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def order_params
-      params.require(:order).permit(:name, :address, :email, :pay_type)
+      params.require(:order).permit(:name, :address, :email, :pay_type_id)
     end
 end
