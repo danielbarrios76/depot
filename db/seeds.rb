@@ -85,7 +85,7 @@ Product.create!(title: 'The Ruby on Rails Tutorial 4.0 ',
       The Ruby Programming Lenguage its a powerful, bla bla bla and more
       bla bla bla. Solo para completar en los otros repito el texto y listo.
       </p>},
-  image_url: 'img002.jpg',    
+  image_url: 'img003.jpg',    
   price: 28.00)
 # . . .
 
