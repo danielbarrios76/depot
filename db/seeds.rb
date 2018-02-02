@@ -7,6 +7,8 @@
 # Visit http://www.pragmaticprogrammer.com/titles/rails5 for more book information.
 #---
 # encoding: utf-8
+
+#Create Products
 Product.delete_all
 Product.create!(title: 'Rails, Angular, Postgres, and Bootstrap',
   description:
@@ -53,3 +55,43 @@ Product.create!(title: 'Ruby Performance Optimization',
       </p>},
   image_url: 'adrpo.jpg',
   price: 46.00)
+# . . . 
+
+Product.create!(title: 'The Ruby Programming Lenguage',
+  description:
+    %{<p>
+      <em>The Ruby Programming Lenguage its a powerful, bla bla bla and more
+      bla bla bla. Solo para completar en los otros repito el texto y listo.
+      </p>},
+  image_url: 'img001.jpg',    
+  price: 37.00)
+# . . . 
+
+Product.create!(title: 'The Ruby on Rails Tutorial',
+  description:
+    %{<p>
+      <em>The Ruby on Rails Tutorial, esta vez copie el contenido. je.
+      The Ruby Programming Lenguage its a powerful, bla bla bla and more
+      bla bla bla. Solo para completar en los otros repito el texto y listo.
+      </p>},
+  image_url: 'img002.jpg',    
+  price: 21.00)
+# . . . 
+
+Product.create!(title: 'The Ruby on Rails Tutorial 4.0 ',
+  description:
+    %{<p>
+      <em>All new The Ruby on Rails Tutorial 4.0, esta vez copie el contenido. je.
+      The Ruby Programming Lenguage its a powerful, bla bla bla and more
+      bla bla bla. Solo para completar en los otros repito el texto y listo.
+      </p>},
+  image_url: 'img002.jpg',    
+  price: 28.00)
+# . . .
+
+
+#Create a Admin User
+User.delete_all
+User.create(name: 'daniel', password: 'secret', password_confirmation: 'secret')
+
+
