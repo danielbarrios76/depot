@@ -94,4 +94,9 @@ Product.create!(title: 'The Ruby on Rails Tutorial 4.0 ',
 User.delete_all
 User.create(name: 'daniel', password: 'secret', password_confirmation: 'secret')
 
+#Create a PayType content
+PayType.delete_all
+PayType.create(name:'Check')
+PayType.create(name:'Credit Card')
+PayType.create(name:'Purchase Order')
 
